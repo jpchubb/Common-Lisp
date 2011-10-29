@@ -1,0 +1,23 @@
+;; ==================== \ Calculator
+;;; Author:
+;; Black Unicorn <jdxyw2004@gmail.com>
+;; Joshua Chubb <chubb.jp@gmail.com>
+;;
+;;; DATE: 29/10/2011
+;; 
+;; ========================================
+
+;; Zero, Succ, Plus, Mult, Pred, Sub, Exp, czerop, int-to-cn, cn-to-int
+;; from www.jdxyw.com/?p=1098
+
+;; \fx. x
+(defvar zero
+	   (lambda (f)
+	     (lambda (x) x)))
+
+;; \nfx. f (n f x)
+(defun succ(n)
+	   (lambda (f)
+	     (lambda (x) (funcall f (funcall (funcall n f) x)))))
+
+;; \n
